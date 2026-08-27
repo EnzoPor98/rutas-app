@@ -9,7 +9,7 @@ import lombok.Setter;
 @PrimaryKeyJoinColumn(name = "vehiculo_id")
 @Getter
 @Setter
-public class Colectivo {
+public class Colectivo extends Vehiculo {
     @Column(nullable = false)
     private Integer capacidad;
 

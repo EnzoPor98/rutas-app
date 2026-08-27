@@ -1,6 +1,7 @@
 package com.rutas.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.ArrayList;
 
 import com.rutas.models.Enums.EstadoViaje;
@@ -36,12 +37,12 @@ public class Viaje {
     @JoinColumn(name = "vehiculo_id", nullable = false)
     private Vehiculo vehiculo;
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "chofer_id", nullable = false)
-    private ArrayList<Chofer> choferes;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "viaje_chofer", joinColumns = @JoinColumn(name = "viaje_id"), inverseJoinColumns = @JoinColumn(name = "chofer_id"))
+    private List<Chofer> choferes = new ArrayList<>();
 
     @OneToMany(mappedBy = "viaje", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ArrayList<Pasaje> pasajes = new ArrayList<>();
+    private List<Pasaje> pasajes = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

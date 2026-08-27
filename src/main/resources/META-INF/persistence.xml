@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+    version="3.0">
+
+    <persistence-unit name="SistemaRutas_PU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Entidades JPA -->
+        <class>com.rutas.models.Persona</class>
+        <class>com.rutas.models.Chofer</class>
+        <class>com.rutas.models.Vehiculo</class>
+        <class>com.rutas.models.Colectivo</class>
+        <class>com.rutas.models.Ciudad</class>
+        <class>com.rutas.models.Viaje</class>
+        <class>com.rutas.models.Pasaje</class>
+
+        <properties>
+            <!-- Conexión a Base de Datos PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <!-- Cambia 'localhost:5432' y 'rutas_db' según la configuración de tu PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:postgresql://localhost:5432/rutas_db" />
+            <property name="jakarta.persistence.jdbc.user" value="postgres" />
+            <property name="jakarta.persistence.jdbc.password" value="#Postgres98" />
+
+            <!-- Configuración del Dialecto de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+
+            <!-- Estrategia de creación de tablas:
+                 - "update": Crea o modifica las tablas automáticamente sin borrar datos existentes.
+                 - "create-drop": Recrea las tablas al iniciar la app (útil en pruebas).
+                 - "validate": Solo valida que la estructura coincida con las entidades.
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <!-- Formato y salida de SQL por consola (útil durante el desarrollo) -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>
