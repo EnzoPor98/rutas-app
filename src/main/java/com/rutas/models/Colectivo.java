@@ -11,11 +11,14 @@ import lombok.Setter;
 @Setter
 public class Colectivo extends Vehiculo {
     @Column(nullable = false)
-    private Integer capacidad;
+    private Boolean doblePiso;
 
     @Column(nullable = false)
     private Boolean aireAcondicionado;
 
     @Column(nullable = false)
     private Boolean wifi;
+
+    @Column(nullable = false)
+    private Boolean catering;
 }

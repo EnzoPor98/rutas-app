@@ -3,7 +3,7 @@ package com.rutas;
 import com.rutas.repository.JPAUtil;
 import jakarta.persistence.EntityManager;
 
-public class testApp {
+public class testDB {
     public static void main(String[] args) {
         System.out.println(">>> Intentando conectar a la base de datos PostgreSQL...");
 

@@ -31,6 +31,9 @@ public abstract class Vehiculo {
     private Integer anio;
 
     @Column(nullable = false)
+    private Integer capacidad;
+
+    @Column(nullable = false)
     private LocalDateTime fechaCompra = LocalDateTime.now();
 
     @Enumerated(EnumType.STRING)
