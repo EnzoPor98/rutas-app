@@ -1,5 +1,3 @@
-package com.rutas;
-
 import com.rutas.repository.JPAUtil;
 import jakarta.persistence.EntityManager;
 

@@ -1,5 +1,3 @@
-package com.rutas;
-
 import com.rutas.models.*;
 import com.rutas.models.Enums.*;
 import com.rutas.repository.*;
